@@ -1,13 +1,65 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.calculator-grid {
+  display: grid;
+  margin-top: 2rem;
+  grid-template-columns: repeat(4, 6rem);
+
+  /* minmax used so our first very row at the top to be 7rem or to expand to fill the full heigt (in my case it's the screen, if big numbers are written it will expand*/
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.span-two {
+  grid-column: span 2;
+}
+.output {
+  /* By doing this the element will span from the first column to the last*/
+  grid-column: 1 / -1;
+
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0.75rem;
+
+  /* So we can wrap when we have really long output*/
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.output .previous-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+.output .current-operand {
+  color: white;
+  font-size: 2.5rem;
 }
