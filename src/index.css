@@ -12,7 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: linear-gradient(to right, #00aaff, #00ff6c);
+  background: linear-gradient(to right, #710d9c, #0ba84c);
   display: flex;
   align-items: center;
   justify-content: center;
